@@ -1,5 +1,7 @@
 <?php
 include '../koneksi.php';
+session_start();
+
 $id = $_GET['id'];
 
 // hapus file lama

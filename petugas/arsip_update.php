@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <?php
 include '../koneksi.php';
 session_start();

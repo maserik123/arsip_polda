@@ -1,4 +1,5 @@
 <?php include 'header.php'; ?>
+<?php session_start(); ?>
 
 
 <div class="breadcome-area">
@@ -36,17 +37,17 @@
                     <h3 class="panel-title">Edit User</h3>
                 </div>
                 <div class="panel-body">
-                    <div class="pull-right">            
+                    <div class="pull-right">
                         <a href="user.php" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Kembali</a>
                     </div>
                     <br>
                     <br>
 
-                    <?php 
-                    $id = $_GET['id'];              
+                    <?php
+                    $id = $_GET['id'];
                     $data = mysqli_query($koneksi, "select * from user where user_id='$id'");
-                    while($d = mysqli_fetch_array($data)){
-                        ?>
+                    while ($d = mysqli_fetch_array($data)) {
+                    ?>
 
                         <form method="post" action="user_update.php" enctype="multipart/form-data">
 
@@ -80,7 +81,7 @@
 
                         </form>
 
-                        <?php 
+                    <?php
                     }
                     ?>
 

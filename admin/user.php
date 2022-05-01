@@ -1,4 +1,5 @@
 <?php include 'header.php'; ?>
+<?php session_start(); ?>
 
 <div class="breadcome-area">
     <div class="container-fluid">
@@ -50,24 +51,24 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php 
+                    <?php
                     include '../koneksi.php';
                     $no = 1;
-                    $user = mysqli_query($koneksi,"SELECT * FROM user ORDER BY user_id DESC");
-                    while($p = mysqli_fetch_array($user)){
-                        ?>
+                    $user = mysqli_query($koneksi, "SELECT * FROM user ORDER BY user_id DESC");
+                    while ($p = mysqli_fetch_array($user)) {
+                    ?>
                         <tr>
                             <td><?php echo $no++; ?></td>
                             <td>
-                                <?php 
-                                if($p['user_foto'] == ""){
-                                    ?>
+                                <?php
+                                if ($p['user_foto'] == "") {
+                                ?>
                                     <img class="img-user" src="../gambar/sistem/user.png">
-                                    <?php
-                                }else{
-                                    ?>
+                                <?php
+                                } else {
+                                ?>
                                     <img class="img-user" src="../gambar/user/<?php echo $p['user_foto']; ?>">
-                                    <?php
+                                <?php
                                 }
                                 ?>
                             </td>
@@ -80,7 +81,7 @@
                                 </div>
                             </td>
                         </tr>
-                        <?php 
+                    <?php
                     }
                     ?>
                 </tbody>

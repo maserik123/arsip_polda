@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <?php
 
 use PHPMailer\PHPMailer\PHPMailer;

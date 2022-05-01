@@ -1,4 +1,7 @@
-<?php include 'header.php'; ?>
+<?php
+session_start();
+
+include 'header.php'; ?>
 
 <div class="breadcome-area">
     <div class="container-fluid">
@@ -43,20 +46,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php 
+                    <?php
                     include '../koneksi.php';
                     $no = 1;
                     $saya = $_SESSION['id'];
-                    $arsip = mysqli_query($koneksi,"SELECT * FROM riwayat,arsip,user WHERE riwayat_arsip=arsip_id and riwayat_user=user_id and arsip_petugas='$saya' ORDER BY riwayat_id DESC");
-                    while($p = mysqli_fetch_array($arsip)){
-                        ?>
+                    $arsip = mysqli_query($koneksi, "SELECT * FROM riwayat,arsip,user WHERE riwayat_arsip=arsip_id and riwayat_user=user_id and arsip_petugas='$saya' ORDER BY riwayat_id DESC");
+                    while ($p = mysqli_fetch_array($arsip)) {
+                    ?>
                         <tr>
                             <td><?php echo $no++; ?></td>
-                            <td><?php echo date('H:i:s  d-m-Y',strtotime($p['riwayat_waktu'])) ?></td>
+                            <td><?php echo date('H:i:s  d-m-Y', strtotime($p['riwayat_waktu'])) ?></td>
                             <td><?php echo $p['user_nama'] ?></td>
                             <td><a style="color: blue" href="arsip_preview.php?id=<?php echo $p['arsip_id']; ?>"><?php echo $p['arsip_nama'] ?></a></td>
                         </tr>
-                        <?php 
+                    <?php
                     }
                     ?>
                 </tbody>

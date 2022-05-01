@@ -384,3 +384,4 @@
                 </div>
             </div>
         </div>
+        <?php session_start(); ?>

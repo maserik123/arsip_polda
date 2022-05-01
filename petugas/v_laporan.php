@@ -1,14 +1,17 @@
-<?php include 'header.php'; ?>
+<?php
+session_start();
+
+include 'header.php'; ?>
 
 
 <style>
-.bg-1 {
-    background-color: yellow;
-}
+    .bg-1 {
+        background-color: yellow;
+    }
 
-.bg-2 {
-    background-color: blue;
-}
+    .bg-2 {
+        background-color: blue;
+    }
 </style>
 
 <div class="breadcome-area">
@@ -25,18 +28,15 @@
                                             <div class="form-group">
                                                 <label>Filter Tanggal</label>
                                                 <div class="input-group">
-                                                    <input type="date" name="tgl_awal" class="form-control tgl_awal"
-                                                        placeholder="Tanggal Awal">
+                                                    <input type="date" name="tgl_awal" class="form-control tgl_awal" placeholder="Tanggal Awal">
                                                     <span class="input-group-addon">s/d</span>
-                                                    <input type="date" name="tgl_akhir" class="form-control tgl_akhir"
-                                                        placeholder="Tanggal Akhir">
+                                                    <input type="date" name="tgl_akhir" class="form-control tgl_akhir" placeholder="Tanggal Akhir">
                                                 </div>
 
                                             </div>
                                         </div>
                                     </div>
-                                    <button type="submit" name="filter" value="true"
-                                        class="btn btn-primary">TAMPILKAN</button>
+                                    <button type="submit" name="filter" value="true" class="btn btn-primary">TAMPILKAN</button>
                                     <?php
                                     if (isset($_GET['filter'])) // Jika user mengisi filter tanggal, maka munculkan tombol untuk reset filter
                                         echo '<a href="v_laporan.php" class="btn btn-default">RESET</a>';
@@ -79,12 +79,12 @@
                 if (isset($_GET['alert'])) {
                     if ($_GET['alert'] == "gagal") {
                 ?>
-                <div class="alert alert-danger">File arsip gagal diupload. krena demi keamanan file .php tidak
-                    diperbolehkan.</div>
-                <?php
+                        <div class="alert alert-danger">File arsip gagal diupload. krena demi keamanan file .php tidak
+                            diperbolehkan.</div>
+                    <?php
                     } else {
                     ?>
-                <div class="alert alert-success">Arsip berhasil tersimpan.</div>
+                        <div class="alert alert-success">Arsip berhasil tersimpan.</div>
                 <?php
                     }
                 }
@@ -127,28 +127,28 @@
                         $tglaktif = date('Y-m-d', strtotime(+$tgl2 . 'year', strtotime($tgl1)));
 
                     ?>
-                    <tr class="<?php
+                        <tr class="<?php
                                     if ($tglaktif < $sekarang) {
                                         echo "bg-1";
                                     }
 
                                     ?>">
-                        <td><?php echo $no++; ?></td>
-                        <td><?php echo date('H:i:s  d-m-Y', strtotime($p['arsip_waktu_upload'])) ?></td>
-                        <td>
+                            <td><?php echo $no++; ?></td>
+                            <td><?php echo date('H:i:s  d-m-Y', strtotime($p['arsip_waktu_upload'])) ?></td>
+                            <td>
 
-                            <b>No Surat</b> : <?php echo $p['arsip_kode'] ?><br>
-                            <b>Nama Surat</b> : <?php echo $p['arsip_nama'] ?><br>
-                            <b>Jenis</b> : <?php echo $p['arsip_jenis'] ?><br>
+                                <b>No Surat</b> : <?php echo $p['arsip_kode'] ?><br>
+                                <b>Nama Surat</b> : <?php echo $p['arsip_nama'] ?><br>
+                                <b>Jenis</b> : <?php echo $p['arsip_jenis'] ?><br>
 
-                        </td>
-                        <td><?php echo $p['arsip_kategori'] ?></td>
-                        <td><?php echo $p['tanggal_surat'] ?></td>
-                        <td><?php echo $p['jumlah'] . " " . $p['keterangan_jumlah'] ?></td>
-                        <td><?php echo $tglaktif ?></td>
-                        <!-- <td><?php echo $p['petugas_nama'] ?></td> -->
-                        <td><?php echo $p['arsip_keterangan'] ?></td>
-                        <!-- <td class="text-center">
+                            </td>
+                            <td><?php echo $p['arsip_kategori'] ?></td>
+                            <td><?php echo $p['tanggal_surat'] ?></td>
+                            <td><?php echo $p['jumlah'] . " " . $p['keterangan_jumlah'] ?></td>
+                            <td><?php echo $tglaktif ?></td>
+                            <!-- <td><?php echo $p['petugas_nama'] ?></td> -->
+                            <td><?php echo $p['arsip_keterangan'] ?></td>
+                            <!-- <td class="text-center">
 
 
 
@@ -190,7 +190,7 @@
                                 </button>
                             </div>
                         </td> -->
-                    </tr>
+                        </tr>
                     <?php
                     }
                     ?>
@@ -203,8 +203,7 @@
     </div>
     <div class="row">
         <div class="col-lg-3">
-            <a href="cetak.php?awal=<?= $tgl_awal; ?>&&akhir=<?= $tgl_akhir; ?>" target="_blank" class="btn btn-primary"
-                rel="noopener noreferrer">Cetak Laporan</a>
+            <a href="cetak.php?awal=<?= $tgl_awal; ?>&&akhir=<?= $tgl_akhir; ?>" target="_blank" class="btn btn-primary" rel="noopener noreferrer">Cetak Laporan</a>
         </div>
     </div>
 </div>

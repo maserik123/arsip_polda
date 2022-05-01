@@ -28,7 +28,7 @@ $nama_pengirim = 'Sistem Informasi Kearsipan Polda Riau'; // Isikan dengan nama 
 $b = mysqli_query($koneksi, 'select * from petugas where petugas_id = ' . $petugas_id);
 $row1 = mysqli_fetch_row($b);
 $email_penerima = $row1[4]; // Ambil email penerima dari inputan form
-$subjek = 'Disposisi Kepada Bawahan'; // Ambil subjek dari inputan form
+$subjek = 'Disposisi Kepada Bawahan - [' . date('Y/m/d H:i:s') . ']'; // Ambil subjek dari inputan form
 $pesan = 'This email only testing <br> No Reply'; // Ambil pesan dari inputan form
 // $attachment = $_FILES['attachment']['name']; // Ambil nama file yang di upload
 

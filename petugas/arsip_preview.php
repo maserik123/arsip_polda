@@ -1,4 +1,5 @@
 <?php include 'header.php'; ?>
+<?php session_start(); ?>
 
 <div class="breadcome-area">
     <div class="container-fluid">
